@@ -71,6 +71,9 @@ MO's 알고리즘
 
 제곱근 분할법
 
+Splay Tree
+https://justicehui.github.io/hard-algorithm/2018/11/12/SplayTree1/
+
 
 **이분탐색 ?**
 

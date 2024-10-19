@@ -16,6 +16,7 @@
 ## 웰노운 모아놓은 블로그들
 https://cocoachan.tistory.com/
 
+https://blog.naver.com/PostView.nhn?blogId=kks227&logNo=221414840544&parentCategoryNo=&categoryNo=299&viewDate=&isShowPopularPosts=true&from=search
 
 ## 추가해야할 알고리즘
 2-SAT ;

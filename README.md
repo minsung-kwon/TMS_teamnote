@@ -64,7 +64,7 @@ KMP 알고리즘
 최장 공통 부분 순열 <-- 혹시 모르니..
 
 링크 컷 트리
-
+file:///C:/Users/Lenovo/Downloads/Kenneth Rosen - Discrete Mathematics and Its Applications - 8th edition.pdf
 오프라인 쿼리
 
 MO's 알고리즘

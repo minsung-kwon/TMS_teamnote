@@ -13,6 +13,9 @@
 
 typedef long long ll;
 
+되도록이면 pair 쓰기. 3개 이상은 구조체 쓰기.
+typedef pair<ll,ll> pl;
+
 # 추가해야할것들
 
 ## 웰노운 모아놓은 블로그들

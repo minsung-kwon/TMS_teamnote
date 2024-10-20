@@ -54,7 +54,7 @@ KMP 알고리즘
 
 확장 유클리드 알고리즘
 
-중국인의 나머지 정리 (CRT)
+중국인의 나머지 정리 (CRT)   
 
 선분교차판정(CCW)
 
@@ -80,3 +80,5 @@ https://justicehui.github.io/hard-algorithm/2018/11/12/SplayTree1/
 
 **이분탐색 ?**
 
+KMP
+컨벡스헐

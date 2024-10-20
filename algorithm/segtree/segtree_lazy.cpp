@@ -2,7 +2,9 @@
 #include <cmath>
 #include <vector>
 using namespace std;
-void init(vector<long long> &a, vector<long long> &tree, int node, int start, int end) {
+typedef long long ll;
+
+void init(vector<ll> &a, vector<ll> &tree, int node, int start, int end) {
     if (start == end) {
         tree[node] = a[start];
     } else {
@@ -11,7 +13,7 @@ void init(vector<long long> &a, vector<long long> &tree, int node, int start, in
         tree[node] = tree[node*2] + tree[node*2+1];
     }
 }
-void update_lazy(vector<long long> &tree, vector<long long> &lazy, int node, int start, int end) {
+void update_lazy(vector<ll> &tree, vector<ll> &lazy, int node, int start, int end) {
     if (lazy[node] != 0) {
         tree[node] += (end-start+1)*lazy[node];
         if (start != end) {
@@ -21,7 +23,7 @@ void update_lazy(vector<long long> &tree, vector<long long> &lazy, int node, int
         lazy[node] = 0;
     }
 }
-void update_range(vector<long long> &tree, vector<long long> &lazy, int node, int start, int end, int left, int right, long long diff) {
+void update_range(vector<ll> &tree, vector<ll> &lazy, int node, int start, int end, int left, int right, ll diff) {
     update_lazy(tree, lazy, node, start, end);
     if (left > end || right < start) {
         return;
@@ -38,7 +40,7 @@ void update_range(vector<long long> &tree, vector<long long> &lazy, int node, in
     update_range(tree, lazy, node*2+1, (start+end)/2+1, end, left, right, diff);
     tree[node] = tree[node*2] + tree[node*2+1];
 }
-long long query(vector<long long> &tree, vector<long long> &lazy, int node, int start, int end, int left, int right) {
+ll query(vector<ll> &tree, vector<ll> &lazy, int node, int start, int end, int left, int right) {
     update_lazy(tree, lazy, node, start, end);
     if (left > end || right < start) {
         return 0;
@@ -46,8 +48,8 @@ long long query(vector<long long> &tree, vector<long long> &lazy, int node, int 
     if (left <= start && end <= right) {
         return tree[node];
     }
-    long long lsum = query(tree, lazy, node*2, start, (start+end)/2, left, right);
-    long long rsum = query(tree, lazy, node*2+1, (start+end)/2+1, end, left, right);
+    ll lsum = query(tree, lazy, node*2, start, (start+end)/2, left, right);
+    ll rsum = query(tree, lazy, node*2+1, (start+end)/2+1, end, left, right);
     return lsum + rsum;
 }
 int main() {
@@ -55,11 +57,11 @@ int main() {
     cin.tie(nullptr);
     int n, m, k;
     cin >> n >> m >> k;
-    vector<long long> a(n);
+    vector<ll> a(n);
     int h = (int)ceil(log2(n));
     int tree_size = (1 << (h+1));
-    vector<long long> tree(tree_size);
-    vector<long long> lazy(tree_size);
+    vector<ll> tree(tree_size);
+    vector<ll> lazy(tree_size);
     m += k;
     for (int i=0; i<n; i++) {
         cin >> a[i];
@@ -70,7 +72,7 @@ int main() {
         cin >> what;
         if (what == 1) {
             int left, right;
-            long long diff;
+            ll diff;
             cin >> left >> right >> diff;
             update_range(tree, lazy, 1, 0, n-1, left-1, right-1, diff);
         } else if (what == 2) {
@@ -81,4 +83,3 @@ int main() {
     }
     return 0;
 }
-
